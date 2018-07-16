@@ -1,0 +1,164 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>mapr</groupId>
+    <artifactId>mapr-spark-structuredstreaming-uber</artifactId>
+    <version>1.0</version>
+    <name>mapr-spark-structuredstreaming-uber</name>
+    <description></description>
+    <inceptionYear>2018</inceptionYear>
+
+
+    <properties>
+
+        
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <encoding>UTF-8</encoding>
+
+        <scala.version>2.11.5</scala.version>
+        <scala.binary.version>2.11</scala.binary.version>
+
+        <!-- version = <spark_version>-mapr-<mapr_eco_version> -->
+       
+        <drill.version>1.11.0-mapr</drill.version>
+        <ojai.version>2.0-mapr-1710</ojai.version>
+        <spark.version>2.1.0-mapr-1710</spark.version>
+        <scala.binary.version>2.11</scala.binary.version>     
+        <hbasespark.version>1.1.8-mapr-1710-m7-6.0.0</hbasespark.version>
+        
+ 
+        <mapr.version>6.0.1-mapr</mapr.version>
+        <spark.version>2.2.1-mapr-1803</spark.version>
+        <scala.binary.version>2.11</scala.binary.version>  
+        
+    </properties>  
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <!-- This should be at top, it makes maven try the central repo first and then others and hence faster dep resolution -->
+            <name>Maven Repository</name>
+            <url>https://repo1.maven.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>mapr-releases</id>
+            <url>http://repository.mapr.com/maven/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>scala-tools.org</id>
+            <name>Scala-tools Maven2 Repository</name>
+            <url>http://scala-tools.org/repo-releases</url>
+        </repository>
+    </repositories>
+    <dependencies>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_${scala.binary.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_${scala.binary.version}</artifactId>
+            <version>${spark.version}</version>   
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_${scala.binary.version}</artifactId>
+            <version>${spark.version}</version>
+        
+        </dependency>
+
+
+       
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-kafka-0-10_${scala.binary.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+  
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql-kafka-0-10_2.11</artifactId>
+            <version>${spark.version}</version>
+                 
+        </dependency>
+  
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_${scala.binary.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mapr.streams</groupId>
+            <artifactId>mapr-streams</artifactId>
+            <version>${mapr.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.mapr.db</groupId>
+            <artifactId>maprdb-spark</artifactId>
+            <version>${spark.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>1.0.1-mapr-streams-6.0.1</version>  
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.zookeeper</groupId>
+                    <artifactId>zookeeper</artifactId>
+                </exclusion>
+            </exclusions>      
+        </dependency>
+        
+    </dependencies>
+   
+   
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.scala-tools</groupId>						
+                <artifactId>maven-scala-plugin</artifactId>
+                <version>2.11</version> 							
+                <executions>									
+                    <execution>									
+                        <goals>										
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+    
+        </plugins>
+        
+
+    </build>
+
+</project>
