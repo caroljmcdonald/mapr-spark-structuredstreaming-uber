@@ -23,7 +23,7 @@
        
         <drill.version>1.11.0-mapr</drill.version>
         <ojai.version>2.0-mapr-1710</ojai.version>
-        <spark.version>2.1.0-mapr-1710</spark.version>
+      
         <scala.binary.version>2.11</scala.binary.version>     
         <hbasespark.version>1.1.8-mapr-1710-m7-6.0.0</hbasespark.version>
         
@@ -90,7 +90,7 @@
         </dependency>
 
 
-       
+
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming-kafka-0-10_${scala.binary.version}</artifactId>
